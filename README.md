@@ -5,7 +5,7 @@
 + adding to cart
 + current cart status
 + carousel
-+ responive
++ responsive
 
 ## screenshots
 ![image](https://user-images.githubusercontent.com/114868887/224158303-64b11e9b-e223-43a4-88b2-b5d244135228.png)
