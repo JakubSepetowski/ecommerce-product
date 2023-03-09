@@ -51,7 +51,7 @@ export function App() {
 
 	return (
 		<Fragment>
-			<Nav onToogleCart={toogleCartHandler} itemCounter={itemCounter} addToCart={isAddToCart} />
+			<Nav onToogleCart={toogleCartHandler} itemCounter={itemCounter} addToCart={isAddToCart} openCart={openCart} />
 			<Main
 				onShowModal={showModalHandler}
 				openCart={openCart}

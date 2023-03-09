@@ -8,6 +8,7 @@ type Props = {
 	onToogleCart: () => void;
 	itemCounter: number;
 	addToCart: boolean;
+	openCart: boolean;
 };
 
 export const Nav = (props: Props) => {
@@ -15,6 +16,7 @@ export const Nav = (props: Props) => {
 
 	const showNavHandler = () => {
 		setShowNav(true);
+		if (props.openCart) props.onToogleCart();
 	};
 	const closeNavHandler = () => {
 		setShowNav(false);

@@ -10,7 +10,7 @@ type Props = {
 
 export const MobileNav = (props: Props) => {
 	const overlay = (
-		<div className='fixed top-0 left-0 z-20 bg-black bg-opacity-60 w-full h-screen backdrop-blur-sm  '></div>
+		<div className='md:hidden fixed top-0 left-0 z-20 bg-black bg-opacity-60 w-full h-screen backdrop-blur-sm  '></div>
 	);
 
 	return (
@@ -24,7 +24,7 @@ export const MobileNav = (props: Props) => {
 				<div
 					className={`${
 						props.isShow ? 'translate-x-0' : 'translate-x-[-100%]'
-					} fixed top-0 left-0 w-3/5 h-screen bg-white z-30 transition-transform duration-500`}>
+					} fixed top-0 left-0 w-3/5 h-screen bg-white z-[100] transition-transform duration-500`}>
 					<button onClick={props.onCloseNav} className='p-2 ml-4 mt-10'>
 						<img src={closeIcon} alt='' />
 					</button>
