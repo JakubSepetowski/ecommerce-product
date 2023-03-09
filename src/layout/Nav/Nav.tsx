@@ -6,6 +6,8 @@ import { MainNav } from './MainNav';
 
 type Props = {
 	onToogleCart: () => void;
+	itemCounter: number;
+	addToCart: boolean;
 };
 
 export const Nav = (props: Props) => {
@@ -24,7 +26,11 @@ export const Nav = (props: Props) => {
 				<MainNav />
 				<MobileNav isShow={showNav} onShowNav={showNavHandler} onCloseNav={closeNavHandler} />
 				<div className='flex'>
-					<CartButton onToogleCart={props.onToogleCart} />
+					<CartButton
+						onToogleCart={props.onToogleCart}
+						itemCounter={props.itemCounter}
+						addToCart={props.addToCart}
+					/>
 					<img className='w-10 mr-2' src={avatar} alt='Profile picture' />
 				</div>
 			</div>

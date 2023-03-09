@@ -1,6 +1,23 @@
 import cartIcon from '../../../assets/icons/icon-cart-white.svg';
 
-export const Description = () => {
+type Props = {
+	itemCounter: number;
+	onAddProduct: () => void;
+	onRemoveProduct: () => void;
+	onAddToCart: () => void;
+};
+
+export const Description = (props: Props) => {
+	const addItemHandler = () => {
+		props.onAddProduct();
+	};
+	const removeItemHandler = () => {
+		props.onRemoveProduct();
+	};
+	const addToCartHandler = () => {
+		props.onAddToCart()
+	};
+
 	return (
 		<div className=' flex flex-col items-center justify-center md:h-[27rem] text-center w-full md:w-2/4 lg:ml-10'>
 			<div className='text-left p-2  max-w-md lg:h-96'>
@@ -19,15 +36,21 @@ export const Description = () => {
 				<p className='mt-1 text-neutral-200 line-through '>$250.00</p>
 				<div className='flex justify-between mt-5 lg:mt-8'>
 					<div className='bg-neutral-100 w-2/5 rounded-lg flex justify-between items-center'>
-						<button className='p-2 text-orange-900 font-bold text-lg hover:scale-125 transition-transform'>
+						<button
+							onClick={removeItemHandler}
+							className='p-2 text-orange-900 font-bold text-lg hover:scale-125 transition-transform'>
 							-
 						</button>
-						<span className='font-bold'>3</span>
-						<button className='p-2 text-orange-900 font-bold text-lg hover:scale-125 transition-transform duration-300'>
+						<span className='font-bold'>{props.itemCounter}</span>
+						<button
+							onClick={addItemHandler}
+							className='p-2 text-orange-900 font-bold text-lg hover:scale-125 transition-transform duration-300'>
 							+
 						</button>
 					</div>
-					<button className='w-3/5 bg-orange-900 ml-5 rounded-lg flex justify-center items-center text-white hover:shadow-2xl  hover:shadow-orange-400 duration-300 hover:scale-105 transition-all'>
+					<button
+						onClick={addToCartHandler}
+						className='w-3/5 bg-orange-900 ml-5 rounded-lg flex justify-center items-center text-white hover:shadow-2xl  hover:shadow-orange-400 duration-300 hover:scale-105 transition-all'>
 						<img className='' src={cartIcon} alt='cart icon' />
 						<p className='ml-2'>Add to cart</p>
 					</button>

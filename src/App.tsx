@@ -2,12 +2,13 @@ import { Fragment, useState } from 'react';
 import { Main } from './layout/Main/Main';
 import { Nav } from './layout/Nav/Nav';
 import { Modal } from './layout/Modal/Modal';
-import { Cart } from './layout/Nav/Cart/Cart';
 
 export function App() {
 	const [isModalShown, setisModalShown] = useState(false);
 	const [product, setProduct] = useState(0);
 	const [openCart, setOpenCart] = useState(false);
+	const [itemCounter, setItemCounter] = useState(0);
+	const [isAddToCart, setIsAddToCart] = useState(false);
 
 	const showModalHandler = (type: number) => {
 		setProduct(type);
@@ -33,11 +34,34 @@ export function App() {
 	const toogleCartHandler = () => {
 		setOpenCart((prev) => !prev);
 	};
+	const addProductHandler = () => {
+		setItemCounter((prev) => prev + 1);
+	};
+	const removeProductHandler = () => {
+		if (itemCounter > 0) setItemCounter((prev) => prev - 1);
+	};
+	const addToCartHandler = () => {
+		if (itemCounter > 0) setIsAddToCart(true);
+	};
+	const removeFromCartHandler = () => {
+		setIsAddToCart(false);
+		setOpenCart(false);
+		setItemCounter(0);
+	};
 
 	return (
 		<Fragment>
-			<Nav onToogleCart={toogleCartHandler} />
-			<Main onShowModal={showModalHandler} openCart={openCart} />
+			<Nav onToogleCart={toogleCartHandler} itemCounter={itemCounter} addToCart={isAddToCart} />
+			<Main
+				onShowModal={showModalHandler}
+				openCart={openCart}
+				itemCounter={itemCounter}
+				onAddProduct={addProductHandler}
+				onRemoveProduct={removeProductHandler}
+				onAddToCart={addToCartHandler}
+				addToCart={isAddToCart}
+				removeFromCart={removeFromCartHandler}
+			/>
 			{isModalShown && (
 				<Modal type={product} onClsoeModal={closeModalHandler} onChangeImg={changeImgHandler} />
 			)}
