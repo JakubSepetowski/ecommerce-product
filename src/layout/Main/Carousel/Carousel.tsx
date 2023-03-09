@@ -35,6 +35,7 @@ export const Carousel = () => {
 		<div className='w-full  bg-slate-400 relative md:hidden'>
 			<div>{changeImg()}</div>
 			<CarouselButtons onButtonClick={currSlideHandler} />
+			
 		</div>
 	);
 };

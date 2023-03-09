@@ -24,13 +24,14 @@ export const CarouselButtons = (props: Props) => {
 			<button
 				onClick={leftAarrowHandler}
 				className='absolute top-2/4 left-5 translate-y-[-50%] bg-white rounded-[100%] p-2 w-8 h-8 flex justify-center items-center'>
-				<img className='w-3 rounded-[100%]' src={arrowLeft} alt='' />
+				<img className='w-3 rounded-[100%]' src={arrowLeft} alt='arrow left icon' />
 			</button>
 			<button
 				onClick={rightAarrowHandler}
 				className='absolute top-2/4 right-5 translate-y-[-50%] bg-white rounded-[100%] p-2 w-8 h-8 flex justify-center items-center '>
-				<img className='w-3 rounded-[100%]' src={arrowRight} alt='' />
+				<img className='w-3 rounded-[100%]' src={arrowRight} alt='arrow right icon' />
 			</button>
+			
 		</Fragment>
 	);
 };
