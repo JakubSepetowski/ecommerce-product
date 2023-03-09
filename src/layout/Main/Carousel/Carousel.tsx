@@ -32,10 +32,10 @@ export const Carousel = () => {
 	};
 
 	return (
-		<div className='w-full  bg-slate-400 relative md:hidden'>
+		<section className='w-full  bg-slate-400 relative md:hidden'>
 			<div>{changeImg()}</div>
 			<CarouselButtons onButtonClick={currSlideHandler} />
 			
-		</div>
+		</section>
 	);
 };
