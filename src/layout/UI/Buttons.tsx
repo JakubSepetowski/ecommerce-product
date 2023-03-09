@@ -10,17 +10,25 @@ export const Buttons = (props: any) => {
 	};
 
 	return (
-		<div className='flex justify-between mt-4 '>
-			<button onClick={clickHandler} className='w-20 hover:scale-105 border-orange-900 hover:border transition-all rounded-lg duration-300'>
+		<div className='flex justify-between mt-7  '>
+			<button
+				onClick={clickHandler}
+				className='w-24 hover:scale-105 border-orange-900 hover:border transition-all rounded-lg duration-300'>
 				<img data-id='0' className='rounded-md' src={thumbnail1} alt='sneakers picture' />
 			</button>
-			<button onClick={clickHandler} className='w-20 hover:scale-105 border-orange-900 hover:border transition-all rounded-lg duration-300'>
+			<button
+				onClick={clickHandler}
+				className='w-24 hover:scale-105 border-orange-900 hover:border transition-all rounded-lg duration-300'>
 				<img data-id='1' className='rounded-md' src={thumbnail2} alt='sneakers picture' />
 			</button>
-			<button onClick={clickHandler} className='w-20 hover:scale-105 border-orange-900 hover:border transition-all rounded-lg duration-300'>
+			<button
+				onClick={clickHandler}
+				className='w-24 hover:scale-105 border-orange-900 hover:border transition-all rounded-lg duration-300'>
 				<img data-id='2' className='rounded-md' src={thumbnail3} alt='sneakers picture' />
 			</button>
-			<button onClick={clickHandler} className='w-20 hover:scale-105 border-orange-900 hover:border transition-all rounded-lg duration-300'>
+			<button
+				onClick={clickHandler}
+				className='w-24 hover:scale-105 border-orange-900 hover:border transition-all rounded-lg duration-300'>
 				<img data-id='3' className='rounded-md' src={thumbnail4} alt='sneakers picture' />
 			</button>
 		</div>

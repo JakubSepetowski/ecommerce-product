@@ -7,7 +7,7 @@ export function App() {
 	const [isModalShown, setisModalShown] = useState(false);
 	const [product, setProduct] = useState(0);
 	const [openCart, setOpenCart] = useState(false);
-	const [itemCounter, setItemCounter] = useState(0);
+	const [itemCounter, setItemCounter] = useState(1);
 	const [isAddToCart, setIsAddToCart] = useState(false);
 
 	const showModalHandler = (type: number) => {
@@ -38,15 +38,15 @@ export function App() {
 		setItemCounter((prev) => prev + 1);
 	};
 	const removeProductHandler = () => {
-		if (itemCounter > 0) setItemCounter((prev) => prev - 1);
+		if (itemCounter > 1) setItemCounter((prev) => prev - 1);
 	};
 	const addToCartHandler = () => {
-		if (itemCounter > 0) setIsAddToCart(true);
+		if (itemCounter >= 1) setIsAddToCart(true);
 	};
 	const removeFromCartHandler = () => {
 		setIsAddToCart(false);
 		setOpenCart(false);
-		setItemCounter(0);
+		setItemCounter(1);
 	};
 
 	return (

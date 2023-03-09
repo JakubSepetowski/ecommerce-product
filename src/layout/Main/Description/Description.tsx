@@ -15,7 +15,7 @@ export const Description = (props: Props) => {
 		props.onRemoveProduct();
 	};
 	const addToCartHandler = () => {
-		props.onAddToCart()
+		props.onAddToCart();
 	};
 
 	return (
