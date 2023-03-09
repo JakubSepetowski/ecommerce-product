@@ -1,24 +1,41 @@
-import img1 from '../../assets/imgs/image-product-1.jpg';
-import img2 from '../../assets/imgs/image-product-2.jpg';
-import img3 from '../../assets/imgs/image-product-3.jpg';
-import img4 from '../../assets/imgs/image-product-4.jpg';
 import thumbnail1 from '../../assets/imgs/image-product-1-thumbnail.jpg';
 import thumbnail2 from '../../assets/imgs/image-product-2-thumbnail.jpg';
 import thumbnail3 from '../../assets/imgs/image-product-3-thumbnail.jpg';
 import thumbnail4 from '../../assets/imgs/image-product-4-thumbnail.jpg';
 import arrowRight from '../../assets/icons/icon-next.svg';
 import arrowLeft from '../../assets/icons/icon-previous.svg';
+import closeIcon from '../../assets/icons/icon-close.svg';
+import { Buttons } from '../UI/Buttons';
 import { ModalImg } from './ModalImg';
-
+import { useState, useEffect, MouseEvent } from 'react';
 
 type Props = {
 	onClsoeModal: () => void;
-	type: string;
+	onChangeImg: (num: number) => void;
+	type: number;
 };
 
 export const Modal = (props: Props) => {
+	const [counter, setCounter] = useState(props.type);
+
+	const leftAarrowHandler = () => {
+		if (counter >= 0) setCounter((prev) => prev - 1);
+		if (counter <= 0) setCounter(3);
+	};
+	const rightAarrowHandler = () => {
+		if (counter >= 0) setCounter((prev) => prev + 1);
+		if (counter >= 3) setCounter(0);
+	};
+	useEffect(() => {
+		props.onChangeImg(counter);
+	}, [counter]);
+
 	const closeModalHandler = () => {
 		props.onClsoeModal();
+	};
+	const goToImgHandler = (e: MouseEvent<HTMLElement>) => {
+		const imgId = (e.target as HTMLElement).dataset.id;
+		props.onChangeImg(Number(imgId));
 	};
 
 	return (
@@ -26,32 +43,23 @@ export const Modal = (props: Props) => {
 			<div className=' relative w-2/4 max-w-xl'>
 				<button
 					onClick={closeModalHandler}
-					className=' text-white text-xl p-4 absolute top-[-60px] right-0 z-40'>
-					X
+					className=' text-white text-xl p-4 absolute top-[-60px] right-0 z-40 hover:scale-125 transition-transform duration-300'>
+					<img src={closeIcon} alt='close icon' />
 				</button>
 				<div className='relative'>
 					<ModalImg img={props.type} />
-					<button className='absolute top-2/4 left-[-16px] translate-y-[-50%] bg-white p-2 rounded-[100%] w-10 h-10 flex items-center justify-center'>
+					<button
+						onClick={leftAarrowHandler}
+						className='absolute top-2/4 left-[-16px] translate-y-[-50%] bg-white p-2 rounded-[100%] w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform duration-300'>
 						<img className='w-3' src={arrowLeft} alt='arrow left icon' />
 					</button>
-					<button className='absolute top-2/4 right-[-16px] translate-y-[-50%] bg-white p-2 rounded-[100%] w-10 h-10 flex items-center justify-center'>
+					<button
+						onClick={rightAarrowHandler}
+						className='absolute top-2/4 right-[-16px] translate-y-[-50%] bg-white p-2 rounded-[100%] w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform duration-300'>
 						<img className='w-3' src={arrowRight} alt='arrow right icion' />
 					</button>
 				</div>
-				<div className='w-full flex justify-around mt-4'>
-					<button className='w-20'>
-						<img className='rounded-md' src={thumbnail1} alt='' />
-					</button>
-					<button className='w-20'>
-						<img className='rounded-md' src={thumbnail2} alt='' />
-					</button>
-					<button className='w-20'>
-						<img className='rounded-md' src={thumbnail3} alt='' />
-					</button>
-					<button className='w-20'>
-						<img className='rounded-md' src={thumbnail4} alt='' />
-					</button>
-				</div>
+				<Buttons onClickHandler={goToImgHandler} />
 			</div>
 		</div>
 	);

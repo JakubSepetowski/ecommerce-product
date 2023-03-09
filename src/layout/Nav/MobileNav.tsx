@@ -1,5 +1,5 @@
 import menuIcon from '../../assets/icons/icon-menu.svg';
-import closeIcon from '../../assets/icons/icon-close.svg';
+import closeIcon from '../../assets/icons/icon-close-black.svg';
 import { Fragment } from 'react';
 
 type Props = {
@@ -29,11 +29,21 @@ export const MobileNav = (props: Props) => {
 						<img src={closeIcon} alt='' />
 					</button>
 					<ul className='mt-10 font-bold text-lg'>
-						<li className='cursor-pointer p-2 mt-2 ml-4'>Collections</li>
-						<li className='cursor-pointer p-2 mt-2 ml-4'>Men</li>
-						<li className='cursor-pointer p-2 mt-2 ml-4'>Women</li>
-						<li className='cursor-pointer p-2 mt-2 ml-4'>About</li>
-						<li className='cursor-pointer p-2 mt-2 ml-4'>Contact</li>
+						<li className='cursor-pointer p-2 mt-2 ml-4 hover:text-orange-900 transition-colors duration-300'>
+							Collections
+						</li>
+						<li className='cursor-pointer p-2 mt-2 ml-4 hover:text-orange-900 transition-colors duration-300'>
+							Men
+						</li>
+						<li className='cursor-pointer p-2 mt-2 ml-4 hover:text-orange-900 transition-colors duration-300'>
+							Women
+						</li>
+						<li className='cursor-pointer p-2 mt-2 ml-4 hover:text-orange-900 transition-colors duration-300'>
+							About
+						</li>
+						<li className='cursor-pointer p-2 mt-2 ml-4 hover:text-orange-900 transition-colors duration-300'>
+							Contact
+						</li>
 					</ul>
 				</div>
 			</div>

@@ -1,17 +1,18 @@
 import avatar from '../../assets/imgs/image-avatar.png';
 import { useState } from 'react';
-import { Cart } from './Cart/Cart';
+import { CartButton } from './Cart/CartButton';
 import { MobileNav } from './MobileNav';
 import { MainNav } from './MainNav';
 
+type Props = {
+	onToogleCart: () => void;
+};
 
-
-export const Nav = () => {
+export const Nav = (props: Props) => {
 	const [showNav, setShowNav] = useState(false);
 
 	const showNavHandler = () => {
 		setShowNav(true);
-		
 	};
 	const closeNavHandler = () => {
 		setShowNav(false);
@@ -23,7 +24,7 @@ export const Nav = () => {
 				<MainNav />
 				<MobileNav isShow={showNav} onShowNav={showNavHandler} onCloseNav={closeNavHandler} />
 				<div className='flex'>
-					<Cart  />
+					<CartButton onToogleCart={props.onToogleCart} />
 					<img className='w-10 mr-2' src={avatar} alt='Profile picture' />
 				</div>
 			</div>
